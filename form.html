@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to VTU Site</title>
+    <link rel="stylesheet" href="form.css">
+    <style>
+        body{
+            background-image: url('WhatsApp Image 2021-06-02 at 12.16.09 PM.jpeg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+        h3,p{
+            text-align: center;
+
+        }
+        nav{
+            background-color: black;
+            color: white;
+            font-size: 21px;
+        }
+        #fee{
+            font-weight: bold;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav><h3>Welcome to Exam Application Form</h3>
+        <p>Enter your details carefully and check before submiting </p></nav>
+    <div class="container">
+        
+        <form method="POST" id="form">
+        <input type="text" name="name" id="name" class="main" placeholder="Enter your name"><br>
+        <input type="text" name="branch" id="branch" class="main" placeholder="Enter your branch"><br>
+        <input type="number" name="sem" id="sem" class="main" placeholder="Enter your sem"><br>
+        <input type="text" name="subjects" id="subjects" class="main" oninput="fun()" placeholder="Enter your total subjects with Arrears">
+        <p id="fee" ></p>
+        <div id="allsub">
+          <div id="subinput"><p><span id=span></span></p></div>
+          <div id="codeinput"><p><span id=codespan></span></p></div>
+        
+        </div>
+        <center><input type="submit" class="submit"></center>
+        </form> 
+        <script>
+            function fun(){
+                document.getElementById("span").innerHTML='Subject Name:';
+                document.getElementById("codespan").innerHTML='Subject Code:';
+                var no= document.getElementById("subjects").value;
+                for(var i=0;i<no;i++){
+                    var textfield=document.createElement("input");
+                    textfield.type="text";
+                    textfield.className="sname";
+                    textfield.name="snames";
+                    textfield.value="";
+                    document.getElementById('subinput').appendChild(textfield);
+                    textfield.placeholder="Subject name"; 
+                    var rightfield=document.createElement("input");
+                    rightfield.type="text";
+                    rightfield.className="rname";
+                    rightfield.name="scodes";
+                    rightfield.value="";
+                    rightfield.placeholder="Subject code";
+                    document.getElementById('codeinput').appendChild(rightfield);
+                fee=(no * 400) + 20;  
+                document.getElementById("fee").innerHTML='Total subject cost =' +fee;    
+                }        
+            }
+        </script>
+        
+    </div>
+</body>
+</html>
